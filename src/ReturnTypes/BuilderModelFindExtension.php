@@ -84,8 +84,6 @@ final class BuilderModelFindExtension implements DynamicMethodReturnTypeExtensio
         foreach ($modelClassType->getObjectClassReflections() as $objectClassReflection) {
             $modelName = $objectClassReflection->getName();
 
-            $returnType = ModelTypeHelper::replaceStaticTypeWithModel($returnType, $modelName);
-
             if ($argType->isIterable()->yes()) {
                 if (in_array(Collection::class, $returnType->getReferencedClasses(), true)) {
                     $models[] = $this->collectionHelper->determineCollectionClass($modelName);
