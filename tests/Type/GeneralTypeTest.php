@@ -88,6 +88,10 @@ class GeneralTypeTest extends TypeInferenceTestCase
             yield from self::gatherAssertTypes(__DIR__ . '/data/model-collections-l11-28.php');
         }
 
+        if (laravel_version_compare('11.0.0', '>=') && laravel_version_compare('12.0.0', '<')) {
+            yield from self::gatherAssertTypes(__DIR__ . '/data/collection-generic-static-methods-l11.php');
+        }
+
         if (laravel_version_compare('11.15.0', '>=')) {
             yield from self::gatherAssertTypes(__DIR__ . '/data/custom-eloquent-builder-l11-15.php');
             yield from self::gatherAssertTypes(__DIR__ . '/data/model-properties-l11.php');
@@ -100,6 +104,10 @@ class GeneralTypeTest extends TypeInferenceTestCase
 
         if (laravel_version_compare('11.31.0', '>=')) {
             yield from self::gatherAssertTypes(__DIR__ . '/data/model-relations-l11-31.php');
+        }
+
+        if (laravel_version_compare('12.0.0', '>=')) {
+            yield from self::gatherAssertTypes(__DIR__ . '/data/collection-generic-static-methods-l12.php');
         }
 
         //##############################################################################################################
